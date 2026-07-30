@@ -1,30 +1,22 @@
-// This is a basic Flutter widget test.
+// Test básico de arranque para Aula Lid-IA.
 //
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
+// Verifica que la app inicia correctamente y muestra la pantalla de login.
 
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:app/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('La app arranca y muestra la pantalla de login', (
+    WidgetTester tester,
+  ) async {
+    // Construye la app y dispara un frame.
+    await tester.pumpWidget(const AulaLidIAApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Verifica que el título "Aula Lid-IA" aparece en pantalla.
+    expect(find.text('Aula Lid-IA'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Verifica que el botón de "Iniciar sesión" está presente.
+    expect(find.text('Iniciar sesión'), findsOneWidget);
   });
 }
